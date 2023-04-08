@@ -7,14 +7,10 @@ import Spin from '../components/Spin';
 import Item from '../components/Item';
 
 let nextId = 0;
-const data = [
-  {option: '1'},
-  {option: '2'}
-]
 
 export default () => {
   const [item, setItem] = useState('');
-  // const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
   const [confirm, setConfirm] = useState(false);
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
@@ -34,7 +30,7 @@ export default () => {
     }
   }
 
-  // if (confirm){
+  if (confirm){
     return (
       <>
         <div className="w-2/4 h-3/4 mx-auto text-center rounded-lg p-10 sm:p-0 sm:w-auto sm:h-screen">
@@ -59,7 +55,7 @@ export default () => {
         </div>
       </>
     )
-  // }
+  }
 
   return (
     <>
