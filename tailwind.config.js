@@ -7,7 +7,7 @@ export default {
   ],
   theme: {
     screens: {
-      'sm': '412px',
+      'sm': {'max': '412px'},
     }
   },
   plugins: [],

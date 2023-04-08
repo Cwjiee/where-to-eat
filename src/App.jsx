@@ -71,7 +71,7 @@ export default () => {
             { data && data.length ? (
               <Item data={data} />
             ) : (
-              <p>add pls</p>
+              <p><i>add items</i></p>
             )}
           </div>
           <Confirm onConfirm={() => setConfirm(true)}/>
