@@ -59,7 +59,7 @@ export default () => {
 
   return (
     <>
-        <div className="w-2/5 h-1/4 mt-56 m-auto text-center rounded-2xl shadow-lg p-10 bg-white">
+        <div className="w-2/5 h-1/4 mt-56 m-auto text-center rounded-2xl shadow-lg px-10 pt-10 pb-2 bg-white">
           <label htmlFor="input" className="block font-medium leading-6 text-gray-900 text-xl">
             Items
           </label>
@@ -75,6 +75,7 @@ export default () => {
             )}
           </div>
           <Confirm onConfirm={() => setConfirm(true)}/>
+          <div className='text-sm'>Made by Wei Jie</div>
         </div>
     </>
   );
