@@ -4,6 +4,9 @@ import Input from '../components/Input'
 import Add from '../components/Add';
 import Confirm from '../components/ConfirmBtn';
 import Spin from '../components/Spin';
+import Item from '../components/Item';
+
+let nextId = 0;
 
 export default () => {
   const [item, setItem] = useState('');
@@ -14,7 +17,7 @@ export default () => {
 
   function handleInput(){
     if (item){
-      setData([...data, {option: item } ]);
+      setData([...data, { id: nextId++, option: item} ]);
       setItem('');
     }
   }
@@ -30,37 +33,49 @@ export default () => {
   if (confirm){
     return (
       <>
-        <Wheel
-          mustStartSpinning={mustSpin}
-          prizeNumber={prizeNumber}
-          data={data}
+        <div className="w-2/4 h-3/4 mx-auto text-center rounded-lg p-10">
+          <div className='w-full ml-32'>
+            <Wheel
+              mustStartSpinning={mustSpin}
+              prizeNumber={prizeNumber}
+              data={data}
+              innerBorderWidth={3}
+              outerBorderWidth={15}
+              outerBorderColor='rgba(23,49,71,255)'
+              backgroundColors={['#ffdd54','#ff8327']}  
+              fontSize={20}
 
-          onStopSpinning={() => {
-            setMustSpin(false);
-          }}
-        />
-        <Spin onSpin={handleSpinClick}/>
+              onStopSpinning={() => {
+                setMustSpin(false);
+              }}
+            />
+          </div>
+          
+          <Spin onSpin={handleSpinClick}/>
+        </div>
       </>
     )
   }
 
   return (
     <>
-        <div className=" w-1/4 m-5">
+        <div className="w-2/5 h-1/4 mt-56 m-auto text-center rounded-2xl shadow-lg p-10 bg-white">
           <label htmlFor="input" className="block font-medium leading-6 text-gray-900 text-xl">
             Items
           </label>
-          <div className="relative p-0 rounded-md flex w-full content-center">
+          <div className="relative p-0 rounded-md flex w-full">
             <Input value={item} onAdd={e => setItem(e.target.value)}/>
             <Add onAdd={() => handleInput() }/>
           </div>
           <div>
-            {data.map(data => (
-                <li>{data.option}</li>
-            ))}
+            { data && data.length ? (
+              <Item data={data} />
+            ) : (
+              <p>add pls</p>
+            )}
           </div>
           <Confirm onConfirm={() => setConfirm(true)}/>
         </div>
     </>
-  )
+  );
 }
