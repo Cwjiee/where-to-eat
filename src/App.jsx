@@ -75,7 +75,7 @@ export default () => {
             )}
           </div>
           <Confirm onConfirm={() => setConfirm(true)}/>
-          <div className='text-sm'>Made by Wei Jie</div>
+          <div className='text-sm mt-10 border-t-2 border-solid'>Made by Wei Jie</div>
         </div>
     </>
   );
