@@ -7,10 +7,14 @@ import Spin from '../components/Spin';
 import Item from '../components/Item';
 
 let nextId = 0;
+const data = [
+  {option: '1'},
+  {option: '2'}
+]
 
 export default () => {
   const [item, setItem] = useState('');
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   const [confirm, setConfirm] = useState(false);
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
@@ -30,11 +34,11 @@ export default () => {
     }
   }
 
-  if (confirm){
+  // if (confirm){
     return (
       <>
-        <div className="w-2/4 h-3/4 mx-auto text-center rounded-lg p-10">
-          <div className='w-full ml-32'>
+        <div className="w-2/4 h-3/4 mx-auto text-center rounded-lg p-10 sm:p-0 sm:w-auto sm:h-screen">
+          <div className='w-full ml-32 sm:ml-0 sm:w-auto'>
             <Wheel
               mustStartSpinning={mustSpin}
               prizeNumber={prizeNumber}
@@ -55,11 +59,11 @@ export default () => {
         </div>
       </>
     )
-  }
+  // }
 
   return (
     <>
-        <div className="w-2/5 h-1/4 mt-56 m-auto text-center rounded-2xl shadow-lg px-10 pt-10 pb-2 bg-white">
+        <div className="w-2/5 sm:w-4/5 h-1/4 mt-56 m-auto text-center rounded-2xl shadow-lg px-10 pt-10 pb-2 sm:px-3 bg-white">
           <label htmlFor="input" className="block font-medium leading-6 text-gray-900 text-xl">
             Items
           </label>
